@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MaterialCommunityIcons } from "react-native-vector-icons";
-import FinishedItems from "../screens/FinishedItems";
-import PendigItems from "../screens/PendigItems";
+import { MaterialCommunityIcons, FontAwesome } from "react-native-vector-icons";
+import Todos from "../screens/Todos";
+import AddTodo from "../screens/AddTodo";
+import { SCREEN_NAME } from "../utils/helper";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,21 +14,21 @@ const BottomTabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="Finsied"
-        component={FinishedItems}
+        name={SCREEN_NAME.TODOS}
+        component={Todos}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
-            <MaterialCommunityIcons
-              name="playlist-check"
-              size={35}
+            <FontAwesome
+              name="list-alt"
+              size={25}
               color={color}
             />
           ),
         }}
       />
       <Tab.Screen
-        name="Pending"
-        component={PendigItems}
+        name={SCREEN_NAME.ADD_TODO}
+        component={AddTodo}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <MaterialCommunityIcons
